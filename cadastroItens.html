@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+
+<body>
+    <!--
+    Cadastrar Item
+    - lote
+    - produto/material/artigo
+    - quantidade
+    - motivo da devolução
+    - data da devolução
+    - foto do item
+    -->
+    <div class="divMother" id="cadastroItem">
+        <a draggable="false" href="index.html"><button id="back-button"><img
+                    src="reply_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" draggable="false"
+                    id="backButton"></button></a>
+        <h2>Lote</h2>
+        <input type="text" placeholder="Número do lote" id="geralInput">
+        <h2>Material</h2>
+        <input type="text" placeholder="Número do material" id="geralInput">
+        <h2>Quantidade</h2>
+        <input type="number" placeholder="Quantidade" id="geralInput">
+        <h2>Motivo da devolução</h2>
+        <input type="text" placeholder="Motivo da devolução" id="geralInput">
+        <h2>Data da devolução</h2>
+        <input type="date" id="geralInput">
+        <h2>Foto do item</h2>
+        <input type="file" accept="image/*" id="geralInput">
+        <button class="actionButton">Cadastrar</button>
+    </div>
+    <link rel="stylesheet" href="script.js">
+</body>
+
+</html>
