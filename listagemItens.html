@@ -4,28 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Itens</title>
     <link rel="stylesheet" href="style.css">
-    <title>Pesquisa de Itens</title>
 </head>
 
 <body>
-    <!--
-    Pesquisar Item
-    - produto/material/artigo
-    - lote
-    -->
     <div class="divMain">
         <div class="divMother" id="pesquisarItem">
             <a draggable="false" href="index.html"><button id="back-button"><img
                         src="reply_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" draggable="false"
                         id="backButton"></button></a>
-            <form>
-                <label>Material</label>
-                <input type="text" placeholder="Número do material" class="geralInput">
-                <label>Lote</label>
-                <input type="text" placeholder="Número do lote" class="geralInput">
-                <input type="submit" value="Pesquisar" class="actionButton">
-            </form>
+            <div class="gridContainer">
+                <div id="item1"></div>
+                <div id="item2"></div>
+                <div id="item3"></div>
+                <div id="item4"></div>
+                <div id="item5"></div>
+                <div id="item6"></div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

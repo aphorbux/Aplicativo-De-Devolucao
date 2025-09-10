@@ -9,20 +9,20 @@ body {
     height: 100vh;
 }
 
-h2 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding-left: .5vh;
-}
-
-/* Div Mãe */
+/* Divs Principais */
 .divMother {
     width: 45vh;
     min-height: 96vh;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
     padding: 20px;
     border: 2px solid black;
     border-radius: 10px;
+}
+
+.divMain {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 /* Tela Inicial */
@@ -56,9 +56,9 @@ h2 {
     cursor: pointer;
 }
 
-/* Outras Telas */
+/* Configs Gerais nas Telas */
 
-#geralInput {
+.geralInput {
     width: 100%;
     height: 5vh;
     display: flex;
@@ -69,8 +69,10 @@ h2 {
     padding-left: 10px;
 }
 
-
-.divMother input[type="file"], .divMother input[type="date"], .divMother input {
+.divMother input=[text],
+.divMother input=[number],
+.divMother input=[date],
+.divMother input=[file] {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
     color: gray;
@@ -94,7 +96,6 @@ a button {
     width: 10vh;
     height: 5vh;
     background-color: #000000;
-    border: 3px solid rgb(233, 231, 231);
     border-radius: 10px;
     margin-bottom: 2vh;
 }
@@ -105,4 +106,27 @@ a button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: .5vh;
+    font-size: 25px;
+}
+
+/* Listagem */
+
+.gridContainer {
+    display: grid;
+    grid: 150px / auto auto auto;
+    grid-gap: 10px;
+    background-color: #e7e7e7;
+    border: 3px solid rgb(80, 80, 80);
+}
+
+.gridContainer div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
 }
