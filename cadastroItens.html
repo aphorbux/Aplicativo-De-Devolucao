@@ -18,25 +18,24 @@
     - data da devolução
     - foto do item
     -->
-    <div class="divMain">
-        <div class="divMother" id="cadastroItem">
-            <a draggable="false" href="index.html"><button id="back-button"><img
-                        src="reply_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" draggable="false"
-                        id="backButton"></button></a>
+    <div class="div-main">
+        <div class="div-mother">
+            <a draggable="false" href="index.html"><button><img src="reply_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                        draggable="false" id="backButton"></button></a>
             <form>
-                <label>Lote<label>
-                <input type="number" placeholder="Número do lote" class="geralInput" id="cadLote">
+                <label>Lote</label>
+                <input type="number" placeholder="Número do lote" class="geral-input" id="cadLote">
                 <label>Material</label>
-                <input type="number" placeholder="Número do material" class="geralInput" id="cadMaterial">
+                <input type="number" placeholder="Número do material" class="geral-input" id="cadMaterial">
                 <label>Quantidade</label>
-                <input type="number" placeholder="Quantidade" class="geralInput" id="cadQuant">
+                <input type="number" placeholder="Quantidade" class="geral-input" id="cadQuant">
                 <label>Motivo da devolução</label>
-                <input type="text" placeholder="Motivo da devolução" class="geralInput" id="cadMotivoDevo">
+                <input type="text" placeholder="Motivo da devolução" class="geral-input" id="cadMotivoDevo">
                 <label>Data da devolução</label>
-                <input type="date" class="geralInput" id="cadDataDevo">
+                <input type="date" class="geral-input" id="cadDataDevo">
                 <label>Foto do item</label>
-                <input type="file" accept="image/*" class="geralInput" id="cadImg">
-                <input type="submit" value="Cadastrar" class="actionButton"
+                <input type="file" accept="image/*" class="geral-input" id="cadImg">
+                <input type="submit" value="Cadastrar" class="action-button" id="cadastroItem"
                     onclick="validarItem('cadLote','cadMaterial','cadQuant','cadMotivoDevo','cadDataDevo','cadImg')">
             </form>
         </div>

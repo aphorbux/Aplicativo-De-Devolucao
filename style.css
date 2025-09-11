@@ -10,7 +10,7 @@ body {
 }
 
 /* Divs Principais */
-.divMother {
+.div-mother {
     width: 45vh;
     min-height: 96vh;
     padding: 20px;
@@ -18,7 +18,7 @@ body {
     border-radius: 10px;
 }
 
-.divMain {
+.div-main {
     height: 100%;
     width: 100%;
     display: flex;
@@ -27,7 +27,7 @@ body {
 
 /* Tela Inicial */
 
-.titleDev {
+.title-dev {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
     text-align: center;
@@ -58,7 +58,7 @@ body {
 
 /* Configs Gerais nas Telas */
 
-.geralInput {
+.geral-input {
     width: 100%;
     height: 5vh;
     display: flex;
@@ -69,16 +69,16 @@ body {
     padding-left: 10px;
 }
 
-.divMother input=[text],
-.divMother input=[number],
-.divMother input=[date],
-.divMother input=[file] {
+.div-mother input[type="text"],
+.div-mother input[type="number"],
+.div-mother input[type="date"],
+.div-mother input[type="file"] {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
     color: gray;
 }
 
-.actionButton {
+.action-button {
     width: 100%;
     height: 5vh;
     margin-top: 20px;
@@ -96,16 +96,16 @@ a button {
     width: 10vh;
     height: 5vh;
     background-color: #000000;
+    border: none;
     border-radius: 10px;
     margin-bottom: 2vh;
+    cursor: pointer;
 }
 
 #backButton {
     height: 5vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    display: inline;
+    justify-content: left;
 }
 
 label {
@@ -116,17 +116,40 @@ label {
 
 /* Listagem */
 
-.gridContainer {
-    display: grid;
-    grid: 150px / auto auto auto;
-    grid-gap: 10px;
-    background-color: #e7e7e7;
-    border: 3px solid rgb(80, 80, 80);
-}
-
-.gridContainer div {
+/*
+.grid-container div {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
+}
+*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.grid-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.grid-item span {
+    display: block;
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
 }
