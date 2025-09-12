@@ -23,17 +23,17 @@
             <a draggable="false" href="index.html"><button><img src="reply_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                         draggable="false" id="backButton"></button></a>
             <form>
-                <label>Lote</label>
+                <label for="cadLote">Lote</label>
                 <input type="number" placeholder="Número do lote" class="geral-input" id="cadLote">
-                <label>Material</label>
+                <label for="cadMaterial">Material</label>
                 <input type="number" placeholder="Número do material" class="geral-input" id="cadMaterial">
-                <label>Quantidade</label>
+                <label for="cadQuant">Quantidade</label>
                 <input type="number" placeholder="Quantidade" class="geral-input" id="cadQuant">
-                <label>Motivo da devolução</label>
+                <label for="cadMotivoDevo">Motivo da devolução</label>
                 <input type="text" placeholder="Motivo da devolução" class="geral-input" id="cadMotivoDevo">
-                <label>Data da devolução</label>
+                <label for="cadDataDevo">Data da devolução</label>
                 <input type="date" class="geral-input" id="cadDataDevo">
-                <label>Foto do item</label>
+                <label for="cadImg">Foto do item</label>
                 <input type="file" accept="image/*" class="geral-input" id="cadImg">
                 <input type="submit" value="Cadastrar" class="action-button" id="cadastroItem"
                     onclick="validarItem('cadLote','cadMaterial','cadQuant','cadMotivoDevo','cadDataDevo','cadImg')">
@@ -42,5 +42,6 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 
 </html>
