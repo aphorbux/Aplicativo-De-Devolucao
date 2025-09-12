@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <title>Cadastro de Itens</title>
 </head>
 
@@ -21,27 +24,36 @@
     <div class="div-main">
         <div class="div-mother">
             <a draggable="false" href="index.html"><button><img src="reply_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
-                        draggable="false" id="backButton"></button></a>
+                        draggable="false" id="backIcon"></button></a>
             <form>
-                <label for="cadLote">Lote</label>
+                <label for="cadLote"><b>Lote</b></label>
                 <input type="number" placeholder="Número do lote" class="geral-input" id="cadLote">
-                <label for="cadMaterial">Material</label>
+                <label for="cadMaterial"><b>Material</b></label>
                 <input type="number" placeholder="Número do material" class="geral-input" id="cadMaterial">
-                <label for="cadQuant">Quantidade</label>
+                <label for="cadQuant"><b>Quantidade</b></label>
                 <input type="number" placeholder="Quantidade" class="geral-input" id="cadQuant">
-                <label for="cadMotivoDevo">Motivo da devolução</label>
+                <label for="cadMotivoDevo"><b>Motivo da devolução</b></label>
                 <input type="text" placeholder="Motivo da devolução" class="geral-input" id="cadMotivoDevo">
-                <label for="cadDataDevo">Data da devolução</label>
+                <label for="cadDataDevo"><b>Data da devolução</b></label>
                 <input type="date" class="geral-input" id="cadDataDevo">
-                <label for="cadImg">Foto do item</label>
+                <label for="cadImg"><b>Foto do item</b></label>
                 <input type="file" accept="image/*" class="geral-input" id="cadImg">
                 <input type="submit" value="Cadastrar" class="action-button" id="cadastroItem"
                     onclick="validarItem('cadLote','cadMaterial','cadQuant','cadMotivoDevo','cadDataDevo','cadImg')">
             </form>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#cadLote').mask('0000000000');
+            $('#cadMaterial').mask('00000000000');
+            $('#cadMotivoDevo').mask('A', {
+                translation: {
+                    'A': { recursive: true }
+                }
+            });
+        });
+    </script>
 </body>
-
 
 </html>
