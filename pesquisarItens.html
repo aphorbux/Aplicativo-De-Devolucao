@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -15,25 +15,32 @@
     <!--
     Pesquisar Item
     - produto/material/artigo
-    - lote
+    - botão com icone de lupa
+    - clicar no botão aparece o input para pesquisar
+    - clicar nele de novo contendo informação no input faz pesquisar os itens na tela listagem
+    - clicar nele sem conteudo no input fará ele retrair a posição inicial
     -->
     <div class="div-main">
         <div class="div-mother">
             <a draggable="false" href="index.html"><button><img src="reply_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                         draggable="false" id="backIcon"></button></a>
-            <form>
+            <form id="searchForm">
                 <label for="pesqMaterial"><b>Material</b></label>
                 <input type="number" placeholder="Número do material" class="geral-input" id="pesqMaterial">
-                <label for="pesqLote"><b>Lote</b></label>
-                <input type="number" placeholder="Número do lote" class="geral-input" id="pesqLote">
-                <input type="button" value="Pesquisar" class="action-button" id="pesquisarItem">
+                <button type="submit" class="action-button" id="pesquisarItem">Pesquisar</button>
             </form>
         </div>
     </div>
     <script>
-        $(document).ready(function () {
-            $('#pesqLote').mask('0000000000');
+        $(document).ready(function (){
             $('#pesqMaterial').mask('00000000000');
+        });
+
+        document.getElementById('searchForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const query = document.getElementById('pesqMaterial').value.trim();
+            if (!query) return alert('Digite algo para pesquisar.');
+            window.location.href = `listagemItens.html?filter=${encodeURIComponent(query)}`;
         });
     </script>
 </body>

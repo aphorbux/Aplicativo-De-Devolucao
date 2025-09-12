@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -25,34 +25,66 @@
         <div class="div-mother">
             <a draggable="false" href="index.html"><button><img src="reply_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                         draggable="false" id="backIcon"></button></a>
-            <form>
+            <form id="itemForm">
                 <label for="cadLote"><b>Lote</b></label>
-                <input type="number" placeholder="Número do lote" class="geral-input" id="cadLote">
+                <input type="number" placeholder="Ex.: 2000123456" class="geral-input" id="cadLote" required>
                 <label for="cadMaterial"><b>Material</b></label>
-                <input type="number" placeholder="Número do material" class="geral-input" id="cadMaterial">
+                <input type="number" placeholder="Ex.: 12345678001" class="geral-input" id="cadMaterial" required>
+                <label for="cadNF"><b>Nota Fiscal</b></label>
+                <input type="text" placeholder="Ex.: 000123456-5" class="geral-input" id="cadNF" required>
                 <label for="cadQuant"><b>Quantidade</b></label>
-                <input type="number" placeholder="Quantidade" class="geral-input" id="cadQuant">
+                <input type="number" placeholder="Ex.: 20" class="geral-input" id="cadQuant" required>
                 <label for="cadMotivoDevo"><b>Motivo da devolução</b></label>
-                <input type="text" placeholder="Motivo da devolução" class="geral-input" id="cadMotivoDevo">
+                <input type="text" placeholder="Ex.: Faltando Transfer" class="geral-input" id="cadMotivoDevo" required>
                 <label for="cadDataDevo"><b>Data da devolução</b></label>
-                <input type="date" class="geral-input" id="cadDataDevo">
+                <input type="date" class="geral-input" id="cadDataDevo" required>
                 <label for="cadImg"><b>Foto do item</b></label>
-                <input type="file" accept="image/*" class="geral-input" id="cadImg">
-                <input type="submit" value="Cadastrar" class="action-button" id="cadastroItem"
-                    onclick="validarItem('cadLote','cadMaterial','cadQuant','cadMotivoDevo','cadDataDevo','cadImg')">
+                <input type="file" accept="image/*" class="geral-input" id="cadImg" required>
+                <button type="submit" class="action-button" id="cadastroItem">Cadastrar</button>
             </form>
+            <div class="custom-alert" id="customAlert">
+                <p>Item salvo com sucesso!</p>
+                <button onclick="hideAlert()">Fechar</button>
+            </div>
         </div>
     </div>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function (){
             $('#cadLote').mask('0000000000');
             $('#cadMaterial').mask('00000000000');
+            $('#cadNF').mask('000000000-0')
             $('#cadMotivoDevo').mask('A', {
                 translation: {
                     'A': { recursive: true }
                 }
             });
         });
+
+        document.getElementById('itemForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const lote = document.getElementById('cadLote').value.trim();
+            const material = document.getElementById('cadMaterial').value.trim();
+            const nf = document.getElementById('cadNF').value.trim();
+            const quantidade = document.getElementById('cadQuant').value.trim();
+            const motivo = document.getElementById('cadMotivoDevo').value.trim();
+            const data = document.getElementById('cadDataDevo').value.trim();
+            const foto = document.getElementById('cadImg').value.trim();
+
+            let items = JSON.parse(localStorage.getItem('items')) || [];
+            items.push({lote, material, nf, quantidade, motivo, data, foto});
+            localStorage.setItem('items', JSON.stringify(items));
+            showAlert();
+            this.reset();
+        });
+
+        function showAlert(){
+            document.getElementById('customAlert').classList.add('show');
+        }
+
+        function hideAlert(){
+            document.getElementById('customAlert').classList.remove('show');
+        }
     </script>
 </body>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -20,10 +20,40 @@
         <div class="div-mother">
             <a draggable="false" href="index.html"><button><img src="reply_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                         draggable="false" id="backIcon"></button></a>
-            <div class="grid-container" id="gridContainer">
-            </div>
+            <!-- <div class="grid-container" id="gridContainer"> -->
+            <div id="itemList"></div>
         </div>
     </div>
+    </div>
+    <script>
+        function displayItems(items) {
+            const container = document.getElementById('itemList');
+            container.innerHTML = '';
+            if (!items || items.length === 0) {
+                container.innerHTML = '<p>Nenhum item encontrado.</p>';
+                return;
+            }
+            const ul = document.createElement('ul');
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `Material: ${item.material} - Lote: ${item.lote}`;
+                ul.appendChild(li);
+            });
+            container.appendChild(ul);
+        }
+        const urlParams = new URLSearchParams(window.location.search);
+        const filter = urlParams.get('filter');
+        let items = JSON.parse(localStorage.getItem('items')) || [];
+        if (filter) {
+            const filterLower = filter.toLowerCase();
+            items = items.filter(item =>
+                item.material.toLowerCase().includes(filterLower) ||
+                item.lote.toLowerCase().includes(filterLower)
+            );
+        }
+
+        displayItems(items);
+    </script>
 </body>
 
 </html>
