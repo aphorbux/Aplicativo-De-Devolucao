@@ -35,20 +35,35 @@
             items.forEach(item => {
                 const itemDiv = document.createElement('div');
                 itemDiv.className = 'item-card';
-                itemDiv.textContent = `Material: ${item.material}`;
-                container.appendChild(itemDiv);
+                itemDiv.style.position = 'relative'
+
+                const imgDiv = document.createElement('div');
+                imgDiv.className = 'listImg';
+                imgDiv.id = 'cadImg';
+                imgDiv.style.position = 'absolute';
+                imgDiv.style.top = '0';
+                imgDiv.style.left = '50';
+
+                const img = document.createElement('img');
+                img.src = item.imageUrl;
+                img.style.width = '100%';
+                img.style.height = 'auto';
+                imgDiv.appendChild(img);
+
+                const materialDiv = document.createElement('div');
+                materialDiv.id = 'cadMaterial';
+                materialDiv.textContent = item.material;
+                materialDiv.style.position = 'relative';
+
+                itemDiv.appendChild(imgDiv);
+                itemDiv.appendChild(materialDiv);
+
+                container.appendChild(itemDiv)
             });
             container.appendChild(ul);
         }
         const urlParams = new URLSearchParams(window.location.search);
-        const filter = urlParams.get('filter');
         let items = JSON.parse(localStorage.getItem('items')) || [];
-        if (filter) {
-            const filterLower = filter.toLowerCase();
-            items = items.filter(item =>
-                item.material.toLowerCase().includes(filterLower)
-            );
-        }
         displayItems(items);
     </script>
 </body>
