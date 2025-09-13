@@ -20,8 +20,7 @@
         <div class="div-mother">
             <a draggable="false" href="index.html"><button><img src="reply_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
                         draggable="false" id="backIcon"></button></a>
-            <!-- <div class="grid-container" id="gridContainer"> -->
-            <div id="itemList"></div>
+            <div class="item-list-grid" id="itemList"></div>
         </div>
     </div>
     </div>
@@ -33,11 +32,11 @@
                 container.innerHTML = '<p>Nenhum item encontrado.</p>';
                 return;
             }
-            const ul = document.createElement('ul');
             items.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = `Material: ${item.material} - Lote: ${item.lote}`;
-                ul.appendChild(li);
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'item-card';
+                itemDiv.textContent = `Material: ${item.material}`;
+                container.appendChild(itemDiv);
             });
             container.appendChild(ul);
         }
@@ -47,11 +46,9 @@
         if (filter) {
             const filterLower = filter.toLowerCase();
             items = items.filter(item =>
-                item.material.toLowerCase().includes(filterLower) ||
-                item.lote.toLowerCase().includes(filterLower)
+                item.material.toLowerCase().includes(filterLower)
             );
         }
-
         displayItems(items);
     </script>
 </body>
